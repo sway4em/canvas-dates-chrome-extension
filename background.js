@@ -1,11 +1,13 @@
 chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
-    if (changeInfo.status === 'complete' && /^https:\/\/foothillcollege\.instructure\.com/.test(tab.url)) {
+    if (changeInfo.status === 'complete' && /^https:\/\/(.*\.instructure\.com|canvas\..*\.edu)/.test(tab.url)) {
         chrome.scripting.executeScript({
             target: { tabId: tabId },
             function: runScript
         });
     }
 });
+
+
 
 function runScript() {
     console.log("Script is Running");
