@@ -20,7 +20,7 @@ function runScript() {
             let monthIndex = monthNames.indexOf(dateParts[1]);
             let year = new Date().getFullYear();
             let dueDateTime = new Date(year, monthIndex, dateParts[2], dateParts[5] === 'pm' ? parseInt(dateParts[3]) + 12 : dateParts[3], dateParts[4]);
-            let daysLeft = Math.ceil((dueDateTime - new Date()) / (1000 * 60 * 60 * 24));
+            let daysLeft = Math.ceil((dueDateTime - new Date()) / (1000 * 60 * 60 * 24)) - 1;
             let daysLeftText = daysLeft > 0 ? `${daysLeft} days left` : 'Due date passed';
             let daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
             let dayOfWeekText = daysOfWeek[dueDateTime.getUTCDay()];
