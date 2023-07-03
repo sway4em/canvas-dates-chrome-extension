@@ -1,4 +1,3 @@
-// background.js
 chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
     if (changeInfo.status === 'complete' && /^https:\/\/foothillcollege\.instructure\.com/.test(tab.url)) {
         chrome.scripting.executeScript({
@@ -11,7 +10,7 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
 function runScript() {
     console.log("Script is Running");
     setInterval(() => {
-        let dueDates = document.querySelectorAll('.assignment-date-due span[data-tooltip]');
+        let dueDates = document.querySelectorAll('span[data-html-tooltip-title]');
 
         dueDates.forEach(dueDate => {
             let dueDateText = dueDate.getAttribute('data-html-tooltip-title');
