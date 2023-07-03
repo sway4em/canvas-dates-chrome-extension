@@ -34,12 +34,12 @@ function runScript() {
                 dueDateTime = new Date(year, monthIndex, dateParts[2]);
             }
             let daysLeft = Math.ceil((dueDateTime - new Date()) / (1000 * 60 * 60 * 24)) - 1;
-            let daysLeftText = daysLeft > 0 ? `${daysLeft} days left` : daysLeft == 0 ? 'Due today' : 'Due date passed';
+            let daysLeftText = daysLeft > 0 ? `${daysLeft} days left` : daysLeft == 5 ? `<span style="color:red;">Due today</span>` : 'Due date passed';
             let daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
             let dayOfWeekText = daysOfWeek[dueDateTime.getUTCDay()];
 
             if (!dueDate.getAttribute('data-modified')) {
-                dueDate.textContent = `${dueDateText} (${dayOfWeekText}, ${daysLeftText})`;
+                dueDate.innerHTML = `${dueDateText} (${dayOfWeekText}, ${daysLeftText})`;
                 dueDate.setAttribute('data-modified', true);
             }
         });
