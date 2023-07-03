@@ -1,0 +1,15 @@
+{
+    "manifest_version": 2,
+    "name": "Canvas Extension",
+    "version": "1.0",
+    "permissions": [
+        "activeTab",
+        "webNavigation",
+        "https://foothillcollege.instructure.com/"
+    ],
+    "background": {
+        "scripts": [
+            "background.js"
+        ]
+    }
+}
